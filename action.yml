@@ -13,7 +13,7 @@ inputs:
   configfile:
     description: 'override the default `pelicanconf.py` config file'
     required: false
-    default: publishconf.py
+    default: pelicanconf.py
   theme:
     description: 'setup the theme folder with package.json file, is required if you need install node modules'
     required: false

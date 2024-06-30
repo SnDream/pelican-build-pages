@@ -24,4 +24,4 @@ if [ -n "${INPUT_THEME}" ]; then
 fi
 
 echo 'Building site 👷 '
-pelican "${SOURCE_DIRECTORY:=content}" -s "${CONFIG_FILE:=publishconf.py}" -o "${DESTINATION_DIRECTORY:=output}"
+pelican "${SOURCE_DIRECTORY:=content}" -s "${CONFIG_FILE:=pelicanconf.py}" -o "${DESTINATION_DIRECTORY:=output}"
