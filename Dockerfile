@@ -1,16 +1,10 @@
-ARG RUBY_VERSION=2.7.4
-FROM ruby:$RUBY_VERSION-slim
+FROM python:3.10.12-slim
 
 RUN apt-get update \
   && apt-get install -y \
-    build-essential \
     git \
     locales \
     nodejs
-
-COPY Gemfile Gemfile
-
-RUN NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install
 
 RUN \
   echo "en_US UTF-8" > /etc/locale.gen && \

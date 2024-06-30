@@ -1,19 +1,22 @@
-name: 'Build Jekyll for GitHub Pages'
-description: 'A simple GitHub Action for producing Jekyll build artifacts compatible with GitHub Pages'
+name: 'Build Pelican for GitHub Pages'
+description: 'A simple GitHub Action for producing Pelican build artifacts compatible with GitHub Pages'
 author: 'GitHub'
 inputs:
   source:
-    description: 'Directory where the source files reside.'
+    description: 'Directory where the content files reside.'
     required: false
-    default: ./
+    default: content
   destination:
     description: 'Output directory of the build. Although it can be nested inside the source, it cannot be the same as the source directory.'
     required: false
     default: ./_site
-  future:
-    description: 'Publishes posts with a future date. When set to true, the build is made with the --future option which overrides the future option that may be set in a Jekyll configuration file.'
+  configfile:
+    description: 'override the default `pelicanconf.py` config file'
     required: false
-    default: false
+    default: publishconf.py
+  theme:
+    description: 'setup the theme folder with package.json file, is required if you need install node modules'
+    required: false
   build_revision:
     description: 'The SHA-1 of the git commit for which the build is running. Default to GITHUB_SHA.'
     required: false
@@ -28,4 +31,4 @@ inputs:
     default: ${{ github.token }}
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/actions/jekyll-build-pages:v1.0.12'
+  image: 'Dockerfile'
