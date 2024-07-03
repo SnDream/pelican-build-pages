@@ -3,8 +3,7 @@ FROM python:3.10.12-slim
 RUN apt-get update \
   && apt-get install -y \
     git \
-    locales \
-    nodejs
+    locales
 
 RUN \
   echo "en_US UTF-8" > /etc/locale.gen && \

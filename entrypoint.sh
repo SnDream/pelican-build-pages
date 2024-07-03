@@ -16,12 +16,8 @@ set -e
 echo 'Installing 🐍 Python Requirements'
 pip install -r requirements.txt
 
-if [ -n "${INPUT_THEME}" ]; then
-  echo 'Installing Node Modules 🧰 '
-  pushd "${THEME_DIRECTORY}"
-  npm install
-  popd
-fi
+echo 'Change Ownership 🧰 '
+chown -R $(id -u):$(id -g) ${GITHUB_WORKSPACE}
 
 echo 'Building site 👷 '
 pelican "${SOURCE_DIRECTORY:=content}" -s "${CONFIG_FILE:=pelicanconf.py}" -o "${DESTINATION_DIRECTORY:=output}"
