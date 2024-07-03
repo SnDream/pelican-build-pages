@@ -16,8 +16,5 @@ set -e
 echo 'Installing 🐍 Python Requirements'
 pip install -r requirements.txt
 
-echo 'Change Ownership 🧰 '
-chown -R $(id -u):$(id -g) ${GITHUB_WORKSPACE}
-
 echo 'Building site 👷 '
 pelican "${SOURCE_DIRECTORY:=content}" -s "${CONFIG_FILE:=pelicanconf.py}" -o "${DESTINATION_DIRECTORY:=output}"
